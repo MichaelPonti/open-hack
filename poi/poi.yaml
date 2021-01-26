@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poi-deployment
+  labels:
+    app: poi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poi
+  template:
+    metadata:
+      labels:
+        app: poi
+    spec:
+      containers:
+      - name: poi
+        image: registrylow2253.azurecr.io/tripinsights/poi:1.0
+        ports:
+        - containerPort: 80        
+        env:
+        - name: SQL_USER
+          value: "sqladminlOw2253"
+        - name: SQL_PASSWORD
+          value: "Password123@"
+        - name: SQL_SERVER
+          value: "sqlserverlow2253.database.windows.net"
+        - name: SQL_DBNAME
+          value: "mydrivingDB"
+        - name: WEB_SERVER_BASE_URI
+          value: "http://0.0.0.0" 
+        - name: WEB_PORT
+          value: "80"
