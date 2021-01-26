@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: trips
   labels:
-    run: trips
+    app: trips
 spec:
   ports:
   - port: 80
     protocol: TCP
   selector:
-    run: trips
+    app: trips
