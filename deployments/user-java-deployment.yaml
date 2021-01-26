@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-java-deployment
+  labels:
+    app: user-java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-java
+  template:
+    metadata:
+      labels:
+        app: user-java
+    spec:
+      containers:
+      - name: user-java
+        image: registrylow2253.azurecr.io/tripinsights/user-java:1.0
+        ports:
+        - containerPort: 80
+        env:
+        - name: PORT
+          value: "80"
+        - name: SQL_USER
+          value: "sqladminlOw2253"
+        - name: SQL_PASSWORD
+          value: "Password123@"
+        - name: SQL_SERVER
+          value: "sqlserverlow2253.database.windows.net"
+        - name: SQL_DBNAME
+          value: "mydrivingDB"
