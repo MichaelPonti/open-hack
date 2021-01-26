@@ -1,16 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: trips-deployment
+  name: trips
+  labels:
+    app: trips
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      run: trips
-  replicas: 1
+      app: trips
   template:
     metadata:
       labels:
-        run: trips
+        app: trips
     spec:
       containers:
       - name: trips
@@ -25,6 +27,8 @@ spec:
             cpu: 500m
             memory: 256Mi
         env:
+        - name: PORT
+          value: "80"
         - name: SQL_USER
           value: "sqladminlOw2253"
         - name: SQL_PASSWORD
@@ -33,7 +37,3 @@ spec:
           value: "sqlserverlow2253.database.windows.net"
         - name: SQL_DBNAME
           value: "mydrivingDB"
-        - name: WEB_SERVER_BASE_URI
-          value: "http://0.0.0.0" 
-        - name: WEB_PORT
-          value: "80"
