@@ -27,8 +27,6 @@ spec:
             cpu: 500m
             memory: 256Mi
         env:
-        - name: PORT
-          value: "80"
         - name: SQL_USER
           value: "sqladminlOw2253"
         - name: SQL_PASSWORD
@@ -37,3 +35,11 @@ spec:
           value: "sqlserverlow2253.database.windows.net"
         - name: SQL_DBNAME
           value: "mydrivingDB"
+        - name: CONFIG_FILES_PATH
+          value: /secrets
+        - name: WEB_PORT
+          value: "80"
+        - name: USERPROFILE_API_ENDPOINT
+          value: "http://userprofile.default.cluster.local"
+        - name: TRIPS_API_ENDPOINT
+          value: "http://trips.default.cluster.local"
