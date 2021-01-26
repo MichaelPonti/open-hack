@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tripviewer
+  labels:
+    app: tripviewer
 spec:
   replicas: 1
   selector:
@@ -24,3 +26,14 @@ spec:
           limits:
             cpu: 500m
             memory: 256Mi
+        env:
+        - name: PORT
+          value: "80"
+        - name: SQL_USER
+          value: "sqladminlOw2253"
+        - name: SQL_PASSWORD
+          value: "Password123@"
+        - name: SQL_SERVER
+          value: "sqlserverlow2253.database.windows.net"
+        - name: SQL_DBNAME
+          value: "mydrivingDB"
