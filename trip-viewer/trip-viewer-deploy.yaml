@@ -40,6 +40,6 @@ spec:
         - name: WEB_PORT
           value: "80"
         - name: USERPROFILE_API_ENDPOINT
-          value: "http://userprofile.default.cluster.local"
+          value: "http://userprofile.default.svc.cluster.local"
         - name: TRIPS_API_ENDPOINT
-          value: "http://trips.default.cluster.local"
+          value: "http://trips.default.svc.cluster.local"
