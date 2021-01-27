@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: poi-deployment
+  name: poi
   labels:
     app: poi
 spec:
@@ -28,7 +28,5 @@ spec:
           value: "sqlserverlow2253.database.windows.net"
         - name: SQL_DBNAME
           value: "mydrivingDB"
-        - name: WEB_SERVER_BASE_URI
-          value: "http://0.0.0.0" 
         - name: WEB_PORT
           value: "80"
