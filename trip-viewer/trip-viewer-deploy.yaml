@@ -40,6 +40,8 @@ spec:
         - name: WEB_PORT
           value: "80"
         - name: USERPROFILE_API_ENDPOINT
-          value: "http://userprofile.default.cluster.local"
+          value: "http://userprofile"
         - name: TRIPS_API_ENDPOINT
-          value: "http://trips.default.cluster.local"
+          value: "http://trips"
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
