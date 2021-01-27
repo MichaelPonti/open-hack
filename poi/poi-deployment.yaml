@@ -21,10 +21,6 @@ spec:
         ports:
         - containerPort: 80        
         env:
-#        - name: SQL_USER
-#          value: "sqladminlOw2253"
-#        - name: SQL_PASSWORD
-#          value: "Password123@"
         - name: SQL_SERVER
           value: "sqlserverlow2253.database.windows.net"
         - name: SQL_DBNAME
@@ -34,10 +30,12 @@ spec:
         - name: SQL_USER
           valueFrom:
             secretKeyRef:
+              name: sqlsecret
               key: SQLUSER
         - name: SQL_PASSWORD
           valueFrom:
             secretKeyRef:
+              name: sqlsecret
               key: SQLPASSWORD
         volumeMounts:
         - name: secrets-store-inline
