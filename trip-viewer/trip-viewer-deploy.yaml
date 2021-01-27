@@ -28,14 +28,6 @@ spec:
             cpu: 500m
             memory: 256Mi
         env:
-        - name: SQL_USER
-          value: "sqladminlOw2253"
-        - name: SQL_PASSWORD
-          value: "Password123@"
-        - name: SQL_SERVER
-          value: "sqlserverlow2253.database.windows.net"
-        - name: SQL_DBNAME
-          value: "mydrivingDB"
         - name: CONFIG_FILES_PATH
           value: /secrets
         - name: WEB_PORT
