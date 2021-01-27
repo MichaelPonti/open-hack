@@ -1,0 +1,63 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: web-dev-g
+  namespace: web
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: web-dev-g
+subjects:
+- kind: Group
+  namespace: web
+  name: e25ef0d4-0334-463a-953b-f654b29d4f29
+
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: web-dev-g
+  namespace: web
+rules:
+- apiGroups: ["", "extensions", "apps"]
+  resources: ["*"]
+  verbs: ["*"]
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
+
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: web-dev-r
+  namespace: web
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: web-dev-r
+subjects:
+- kind: Group
+  namespace: web
+  name: 120b8fb3-c5a6-457c-be21-23a446d475b8
+
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: web-dev-r
+  namespace: web
+rules:
+- apiGroups: [""]
+  resources:
+  - deployments
+  - replicaSets
+  - pods
+  - services
+  - cronjobs
+  - jobs
+  - ingress
+  verbs:
+  - get
+  - watch
+  - list
