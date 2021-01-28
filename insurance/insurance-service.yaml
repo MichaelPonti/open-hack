@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: insurance
+  namespace: api
+  labels:
+    app: insurance
+spec:
+  selector:
+    app: insurance
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8081
