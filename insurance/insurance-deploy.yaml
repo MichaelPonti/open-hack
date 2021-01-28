@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insurance
+  namespace: api
+  labels:
+    app: insurance
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: insurance
+  template:
+    metadata:
+      labels:
+        app: insurance
+    spec:
+      containers:
+      - name: insurance
+        image: registrylow2253.azurecr.io/insurance:1.0
+        ports:
+        - containerPort: 8081
+        resources:
+          limits:
+            memory: 3000Mi
