@@ -19,7 +19,7 @@ metadata:
   name: api-dev-g
   namespace: api
 rules:
-- apiGroups: ["", "extensions", "apps"]
+- apiGroups: ["*"]
   resources: ["*"]
   verbs: ["*"]
 - apiGroups: ["batch"]
