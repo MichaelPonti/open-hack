@@ -5,6 +5,7 @@ metadata:
   namespace: api
   labels:
     app: userprofile
+    role: backend
 spec:
   ports:
   - port: 80

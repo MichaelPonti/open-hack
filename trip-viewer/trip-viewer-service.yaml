@@ -5,6 +5,7 @@ metadata:
   namespace: web
   labels:
     app: tripviewer
+    role: frontend
 spec:
   type: LoadBalancer
   ports:

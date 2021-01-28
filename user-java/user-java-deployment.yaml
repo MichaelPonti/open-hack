@@ -5,6 +5,7 @@ metadata:
   namespace: api
   labels:
     app: user-java
+    role: backend
 spec:
   replicas: 1
   selector:
@@ -14,6 +15,7 @@ spec:
     metadata:
       labels:
         app: user-java
+        role: backend
     spec:
       containers:
       - name: user-java

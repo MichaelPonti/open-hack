@@ -1,0 +1,14 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-front-end-access
+  namespace: api
+spec:
+  podSelector:
+    matchLabels:
+      role: backend
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            scope: frontend 

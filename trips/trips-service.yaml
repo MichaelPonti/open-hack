@@ -5,6 +5,7 @@ metadata:
   namespace: api
   labels:
     app: trips
+    role: backend
 spec:
   ports:
   - port: 80
