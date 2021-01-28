@@ -1,0 +1,19 @@
+let threshold = 175000000; // choose a threshold 
+Perf
+| where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes"
+| where InstanceName contains "/api" or InstanceName contains "/tripviewer" or InstanceName contains "/poi" or InstanceName contains "/userprofile" or InstanceName contains "/trips" or InstanceName contains "user-java"
+| summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName, _ResourceId
+| where AvgUsedRssMemoryBytes > threshold 
+| render timechart
+
+
+
+// Container CPU 
+// View all the container CPU usage averaged over 30mins. 
+// To create an alert for this query, click '+ New alert rule'
+//Select the Line chart display option: can we calculate percentage?
+// selects all the kube-system namespace pods
+Perf
+| where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores"
+| where InstanceName contains "kube-proxy" or InstanceName contains "azure-cni-networkmonitor" or InstanceName contains "azure-ip-masq-agent" or InstanceName contains "coredns" or InstanceName contains "metrics-server" or InstanceName contains "omsagent" or InstanceName contains "tunnelfront"
+| summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName, _ResourceId
