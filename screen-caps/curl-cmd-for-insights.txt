@@ -1,0 +1,32 @@
+hacker@Azure:~$ az account set --subscription "2a5cdc29-0234-4f1e-98d2-dc7e3d026a77"
+hacker@Azure:~$ curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s "2a5cdc29-0234-4f1e-98d2-dc7e3d026a77"
+subscriptionId= 2a5cdc29-0234-4f1e-98d2-dc7e3d026a77
+Cloud Shell is automatically authenticated under the initial account signed-in with. Run 'az login' only if you need to use a different account
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code RMN9SZ25X to authenticate.
+[
+  {
+    "cloudName": "AzureCloud",
+    "homeTenantId": "8b802adc-b969-44f8-b0f6-18d54637bd27",
+    "id": "2a5cdc29-0234-4f1e-98d2-dc7e3d026a77",
+    "isDefault": true,
+    "managedByTenants": [
+      {
+        "tenantId": "2f4a9838-26b7-47ee-be60-ccc1fdec5953"
+      }
+    ],
+    "name": "OTA-PRD-1301",
+    "state": "Enabled",
+    "tenantId": "8b802adc-b969-44f8-b0f6-18d54637bd27",
+    "user": {
+      "name": "hacker3ok4@OTAPRD1301ops.onmicrosoft.com",
+      "type": "user"
+    }
+  }
+]
+Found service principal for the cluster = msi
+ - Running ..
+adding role assignment for aks cluster OpenHack-2
+Cannot find user or service principal in graph database for 'msi'. If the assignee is an appId, make sure the corresponding service principal is created with 'az ad sp create --id msi'.
+role assignment completed for aks cluster OpenHack-2
+completed role assignments for all AKS clusters in subscription: 2a5cdc29-0234-4f1e-98d2-dc7e3d026a77
+hacker@Azure:~$
