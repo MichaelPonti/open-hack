@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wcfservice
+  namespace: api
+  labels:
+    app: wcfservice
+    role: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wcfservice
+  template:
+    metadata:
+      labels:
+        app: wcfservice
+        role: backend
+    spec:
+      containers:
+      - name: wcfservice
+        image: registrylow2253.azurecr.io/wcfservice:1.0
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        kubernetes.io/os: windows
