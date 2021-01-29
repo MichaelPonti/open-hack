@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: tripviewer
-        image: registrylow2253.azurecr.io/tripviewer2:1.0
+        image: registrylow2253.azurecr.io/tripinsights/tripviewer:1.0
         ports:
         - containerPort: 80
         resources:
@@ -40,5 +40,3 @@ spec:
           value: "http://trips.api.svc.cluster.local"
         - name: ASPNETCORE_ENVIRONMENT
           value: "Development"
-        - name: WCF_ENDPOINT
-          value: "http://wcfservice.api.svc.cluster.local"
